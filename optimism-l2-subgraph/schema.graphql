@@ -1,0 +1,41 @@
+# L2 to L1 message from OVM_L2CrossDomainMessenger
+type SentMessage @entity {
+  id: ID!
+  index: Int!
+  timestamp: Int!
+  hash: String!
+  from: Bytes!
+  message: Bytes!
+}
+
+# L1 message from OVM_L1CrossDomainMessenger
+type RelayedMessage @entity {
+  id: ID!
+  to: Bytes!
+  hash: String!
+  timestamp: Int!
+  msgHash: String!
+  index: Int!
+}
+
+type MessageStats @entity {
+  id: ID!
+  sentMessageCount: Int!
+  relayedMessageCount: Int!
+}
+
+type Withdrawal @entity {
+  id: ID!
+  index: Int!
+  hash: String!
+  timestamp: Int!
+  account: Bytes!
+  amount: BigInt!
+  bridgeAddress: Bytes!
+}
+
+type TxStats @entity {
+  id: ID!
+  totalCount: Int!
+  totalAmount: BigInt!
+}

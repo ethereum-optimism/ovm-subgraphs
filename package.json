@@ -1,0 +1,23 @@
+{
+  "name": "@project/l2-subgraph",
+  "version": "0.1.0",
+  "scripts": {
+    "create": "graph create ethereum-optimism/optimism-l2-gateway --node https://api.thegraph.com/deploy/",
+    "create-local": "graph create ethereum-optimism/optimism-l2-gateway --node http://127.0.0.1:8020",
+    "codegen": "graph codegen",
+    "build": "graph build",
+    "deploy": "graph deploy --access-token 58bbc53b59b44369912d6fed2d6a672f --node https://api.staging.thegraph.com/deploy/ --ipfs https://api.staging.thegraph.com/ipfs/ gigamesh/ovm-token-transfers subgraph.yaml",
+    "deploy-local": "graph deploy ethereum-optimism/optimism-l2-gateway --ipfs http://localhost:5001 --node http://127.0.0.1:8020"
+  },
+  "devDependencies": {
+    "@graphprotocol/graph-cli": "^0.19.0",
+    "@graphprotocol/graph-ts": "^0.19.0"
+  },
+  "dependencies": {
+    "babel-polyfill": "^6.26.0",
+    "babel-register": "^6.26.0",
+    "truffle": "^5.0.4",
+    "truffle-contract": "^4.0.5",
+    "truffle-hdwallet-provider": "^1.0.4"
+  }
+}

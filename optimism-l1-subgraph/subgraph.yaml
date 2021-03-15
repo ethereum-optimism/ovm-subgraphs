@@ -1,0 +1,68 @@
+specVersion: 0.0.2
+description: Optimistic ethereum transfers
+repository: https://github.com/ethereum-optimism/optimism-l1-subgraph
+schema:
+  file: ./schema.graphql
+dataSources:
+  - kind: ethereum/contract
+    name: OVM_CrossDomainMessenger
+    network: mainnet
+    source:
+      address: "0xfBE93ba0a2Df92A8e8D40cE00acCF9248a6Fc812"
+      abi: OVM_CrossDomainMessenger
+      startBlock: 11657097
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.4
+      language: wasm/assemblyscript
+      entities:
+        - RelayedMessage
+      abis:
+        - name: OVM_CrossDomainMessenger
+          file: ../abis/OVM_CrossDomainMessenger.json
+      eventHandlers:
+        - event: RelayedMessage(bytes32)
+          handler: handleMessageRelayed
+        - event: SentMessage(bytes)
+          handler: handleSentMessage
+      file: ./src/mapping.ts
+  - kind: ethereum/contract
+    name: OVM_L1ETHGateway
+    network: mainnet
+    source:
+      address: "0x0000000000000000000000000000000000000000" # TODO: replace this
+      abi: OVM_L1ETHGateway
+      startBlock: 11657097
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.4
+      language: wasm/assemblyscript
+      entities:
+        - Deposit
+      abis:
+        - name: OVM_L1ETHGateway
+          file: ../abis/OVM_L1ETHGateway.json
+      eventHandlers:
+        - event: DepositInitiated(indexed address,address,uint256)
+          handler: handleDeposit
+      file: ./src/mapping.ts
+  - kind: ethereum/contract
+    name: SynthetixBridgeToOptimism
+    network: mainnet
+    source:
+      address: "0x045e507925d2e05D114534D0810a1abD94aca8d6"
+      abi: SynthetixBridgeToOptimism
+      startBlock: 11657097
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.4
+      language: wasm/assemblyscript
+      entities:
+        - Deposit
+      abis:
+        - name: SynthetixBridgeToOptimism
+          file: ../abis/SynthetixBridgeToOptimism.json
+      eventHandlers:
+        - event: Deposit(indexed address,uint256) # TODO: change to DepositInitiated and use same ABI for all bridges when Synthetix updates their deployment
+          handler: handleDeposit
+      file: ./src/mapping.ts
