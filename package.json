@@ -15,8 +15,8 @@
     "build:l1": "cd optimism-l1-subgraph && graph build",
     "build:l2": "cd optimism-l2-subgraph && graph build",
     "deploy": "npm run deploy:l1 && npm run deploy:l2",
-    "deploy:l1": "cd optimism-l1-subgraph && graph deploy --access-token 58bbc53b59b44369912d6fed2d6a672f --node https://api.thegraph.com/deploy/ --ipfs https://api.thegraph.com/ipfs/ ethereum-optimism/optimism-l1-subgraph subgraph.yaml && cd ..",
-    "deploy:l2": "cd optimism-l2-subgraph && graph deploy --access-token 58bbc53b59b44369912d6fed2d6a672f --node https://api.thegraph.com/deploy/ --ipfs https://api.thegraph.com/ipfs/ ethereum-optimism/optimism-l2-subgraph subgraph.yaml && cd ..",
+    "deploy:l1": "dotenv -e .env -- cross-var \"cd optimism-l1-subgraph && graph deploy --access-token %THE_GRAPH_API_KEY% --node https://api.thegraph.com/deploy/ --ipfs https://api.thegraph.com/ipfs/ ethereum-optimism/optimism-l1-subgraph subgraph.yaml && cd ..\"",
+    "deploy:l2": "dotenv -e .env -- cross-var \"cd optimism-l2-subgraph && graph deploy --access-token %THE_GRAPH_API_KEY% --node https://api.thegraph.com/deploy/ --ipfs https://api.thegraph.com/ipfs/ ethereum-optimism/optimism-l2-subgraph subgraph.yaml && cd ..\"",
     "deploy-local:l1": "graph deploy ethereum-optimism/optimism-l1-gateway --ipfs http://localhost:5001 --node http://127.0.0.1:8020",
     "deploy-local:l2": "graph deploy ethereum-optimism/optimism-l2-gateway --ipfs http://localhost:5001 --node http://127.0.0.1:8020"
   },
@@ -27,6 +27,9 @@
   "dependencies": {
     "babel-polyfill": "^6.26.0",
     "babel-register": "^6.26.0",
+    "cross-var": "^1.1.0",
+    "dotenv": "^8.2.0",
+    "dotenv-cli": "^4.0.0",
     "fs-extra": "^9.1.0",
     "handlebars": "^4.7.7",
     "js-yaml": "^4.0.0",

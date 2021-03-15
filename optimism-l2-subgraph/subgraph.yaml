@@ -6,7 +6,7 @@ schema:
 dataSources:
   - kind: ethereum/contract
     name: OVM_CrossDomainMessenger
-    network: optimism
+    network: kovan-optimism
     source:
       address: "0x4200000000000000000000000000000000000007"
       abi: OVM_CrossDomainMessenger
@@ -27,9 +27,9 @@ dataSources:
       file: ./src/mapping.ts
   - kind: ethereum/contract
     name: SynthetixBridgeToBase
-    network: optimism
+    network: kovan-optimism
     source:
-      address: "0x4D7186818daBFe88bD80421656BbD07Dffc979Cc"
+      address: "0xC2E4aB21D4d68B82bA71C2Fb449EC8aACc86133A"
       abi: SynthetixBridgeToBase
     mapping:
       kind: ethereum/events
