@@ -11,26 +11,26 @@ optimism:
   contracts:
     ovmCrossDomainMessenger:
       address: "0x4200000000000000000000000000000000000007"
-    ovmL1EthGateway:
-      address: "0x8eB93647490DF9989295461AB2AcdEDdCCA84781"
+    ovmETH:
+      address: "0x4200000000000000000000000000000000000006"
     snxBridgeToBase:
-      address: "0x590b3974533141a44a89033deEcf932F52fcFDea"
+      address: "0x4D7186818daBFe88bD80421656BbD07Dffc979Cc"
   networkName: optimism
 kovan:
   contracts:
     ovmCrossDomainMessenger:
-      address: ""
+      address: "0xb89065D5eB05Cac554FDB11fC764C679b4202322"
     ovmL1EthGateway:
-      address: ""
+      address: "0x6647D5BD9EB9425838Bb89f76a166228b95671a3"
     snxBridgeToOptimism:
-      address: ""
+      address: "0xE8Bf8fe5ce9e15D30F478E1647A57CB6B0271228"
   networkName: kovan
 kovan-optimism:
   contracts:
     ovmCrossDomainMessenger:
-      address: ""
-    ovmL1EthGateway:
-      address: ""
+      address: "0x4200000000000000000000000000000000000007"
+    ovmETH:
+      address: "0x4200000000000000000000000000000000000006"
     snxBridgeToBase:
-      address: ""
+      address: "0xC2E4aB21D4d68B82bA71C2Fb449EC8aACc86133A"
   networkName: kovan-optimism
