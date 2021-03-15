@@ -6,9 +6,9 @@ schema:
 dataSources:
   - kind: ethereum/contract
     name: OVM_CrossDomainMessenger
-    network: mainnet
+    network: {{networkName}}
     source:
-      address: "0xfBE93ba0a2Df92A8e8D40cE00acCF9248a6Fc812"
+      address: "{{contracts.ovmCrossDomainMessenger.address}}"
       abi: OVM_CrossDomainMessenger
     mapping:
       kind: ethereum/events
@@ -27,9 +27,9 @@ dataSources:
       file: ./src/mapping.ts
   - kind: ethereum/contract
     name: SynthetixBridgeToBase
-    network: mainnet
+    network: {{networkName}}
     source:
-      address: ""
+      address: "{{contracts.snxBridgeToBase.address}}"
       abi: SynthetixBridgeToBase
     mapping:
       kind: ethereum/events

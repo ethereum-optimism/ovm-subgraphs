@@ -1,0 +1,36 @@
+mainnet:
+  contracts:
+    ovmCrossDomainMessenger:
+      address: "0xfBE93ba0a2Df92A8e8D40cE00acCF9248a6Fc812"
+    ovmL1EthGateway:
+      address: "0x0000000000000000000000000000000000000000" # TODO: replace this
+    snxBridgeToOptimism:
+      address: "0x045e507925d2e05D114534D0810a1abD94aca8d6"
+  networkName: mainnet
+optimism:
+  contracts:
+    ovmCrossDomainMessenger:
+      address: "0x4200000000000000000000000000000000000007"
+    ovmL1EthGateway:
+      address: "0x8eB93647490DF9989295461AB2AcdEDdCCA84781"
+    snxBridgeToBase:
+      address: "0x590b3974533141a44a89033deEcf932F52fcFDea"
+  networkName: optimism
+kovan:
+  contracts:
+    ovmCrossDomainMessenger:
+      address: ""
+    ovmL1EthGateway:
+      address: ""
+    snxBridgeToOptimism:
+      address: ""
+  networkName: kovan
+kovan-optimism:
+  contracts:
+    ovmCrossDomainMessenger:
+      address: ""
+    ovmL1EthGateway:
+      address: ""
+    snxBridgeToBase:
+      address: ""
+  networkName: kovan-optimism

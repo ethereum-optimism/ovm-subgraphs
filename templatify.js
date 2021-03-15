@@ -12,14 +12,18 @@ const { t } = require('typy');
   const networkName = process.env.NETWORK_NAME;
   const network = t(networks, networkName).safeObject;
   if (t(network).isFalsy) {
-    throw new Error('Please set either a "NETWORK_NAME" or a "SUBGRAPH" environment variable');
+    throw new Error('Please set a "NETWORK_NAME" environment variable');
   }
 
-  const subgraphTemplateFilePath = path.join(__dirname, 'subgraph.template.yaml');
+  if (!process.env.DIR_NAME) {
+    throw new Error('Please set a "DIR_NAME" environment variable');
+  }
+
+  const subgraphTemplateFilePath = path.join(__dirname, `${process.env.DIR_NAME}/subgraph.TEMPLATE.yaml`);
   const source = await fs.readFile(subgraphTemplateFilePath, 'utf-8');
   const template = Handlebars.compile(source);
   const result = template(network);
-  await fs.writeFile(path.join(__dirname, 'subgraph.yaml'), result);
+  await fs.writeFile(path.join(__dirname, `${process.env.DIR_NAME}/subgraph.yaml`), result);
 
   console.log('🎉 subgraph.yaml successfully generated');
 })();
