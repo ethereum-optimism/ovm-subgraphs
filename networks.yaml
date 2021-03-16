@@ -33,4 +33,4 @@ kovan-optimism:
       address: "0x4200000000000000000000000000000000000006"
     snxBridgeToBase:
       address: "0xC2E4aB21D4d68B82bA71C2Fb449EC8aACc86133A"
-  networkName: kovan-optimism
+  networkName: optimism-kovan

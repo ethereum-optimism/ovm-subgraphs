@@ -14,11 +14,14 @@
     "build": "npm run build:l1 && npm run build:l2",
     "build:l1": "cd optimism-l1-subgraph && graph build",
     "build:l2": "cd optimism-l2-subgraph && graph build",
-    "deploy": "npm run deploy:l1 && npm run deploy:l2",
-    "deploy:l1": "dotenv -e .env -- cross-var \"cd optimism-l1-subgraph && graph deploy --access-token %THE_GRAPH_API_KEY% --node https://api.thegraph.com/deploy/ --ipfs https://api.thegraph.com/ipfs/ ethereum-optimism/optimism-l1-subgraph subgraph.yaml && cd ..\"",
-    "deploy:l2": "dotenv -e .env -- cross-var \"cd optimism-l2-subgraph && graph deploy --access-token %THE_GRAPH_API_KEY% --node https://api.thegraph.com/deploy/ --ipfs https://api.thegraph.com/ipfs/ ethereum-optimism/optimism-l2-subgraph subgraph.yaml && cd ..\"",
-    "deploy-local:l1": "graph deploy ethereum-optimism/optimism-l1-gateway --ipfs http://localhost:5001 --node http://127.0.0.1:8020",
-    "deploy-local:l2": "graph deploy ethereum-optimism/optimism-l2-gateway --ipfs http://localhost:5001 --node http://127.0.0.1:8020"
+    "deploy:mainnet": "npm run deploy:mainnet:l1 && npm run deploy:mainnet:l2",
+    "deploy:mainnet:l1": "dotenv -e .env -- cross-var \"cd optimism-l1-subgraph && graph deploy --access-token %THE_GRAPH_API_KEY% --node https://api.thegraph.com/deploy/ --ipfs https://api.thegraph.com/ipfs/ ethereum-optimism-2/optimism-l1-mainnet subgraph.yaml && cd ..\"",
+    "deploy:mainnet:l2": "dotenv -e .env -- cross-var \"cd optimism-l2-subgraph && graph deploy --access-token %THE_GRAPH_API_KEY% --node https://api.thegraph.com/deploy/ --ipfs https://api.thegraph.com/ipfs/ ethereum-optimism-2/optimism-l2-mainnet subgraph.yaml && cd ..\"",
+    "deploy:kovan": "npm run deploy:kovan:l1 && npm run deploy:kovan:l2",
+    "deploy:kovan:l1": "dotenv -e .env -- cross-var \"cd optimism-l1-subgraph && graph deploy --access-token %THE_GRAPH_API_KEY% --node https://api.thegraph.com/deploy/ --ipfs https://api.thegraph.com/ipfs/ ethereum-optimism-2/optimism-l1-kovan subgraph.yaml && cd ..\"",
+    "deploy:kovan:l2": "dotenv -e .env -- cross-var \"cd optimism-l2-subgraph && graph deploy --access-token %THE_GRAPH_API_KEY% --node https://api.thegraph.com/deploy/ --ipfs https://api.thegraph.com/ipfs/ ethereum-optimism-2/optimism-l2-kovan subgraph.yaml && cd ..\"",
+    "deploy-local:l1": "graph deploy ethereum-optimism-2/optimism-l1-gateway --ipfs http://localhost:5001 --node http://127.0.0.1:8020",
+    "deploy-local:l2": "graph deploy ethereum-optimism-2/optimism-l2-gateway --ipfs http://localhost:5001 --node http://127.0.0.1:8020"
   },
   "devDependencies": {
     "@graphprotocol/graph-cli": "^0.19.0",
