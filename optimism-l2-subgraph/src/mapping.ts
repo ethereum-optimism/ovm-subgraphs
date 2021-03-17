@@ -22,7 +22,7 @@ export function handleMessageRelayed(event: RelayedMessageEvent): void {
 
   const relayedMessage = new RelayedMessage(event.params.msgHash.toHex());
   relayedMessage.to = event.transaction.to as Bytes;
-  relayedMessage.hash = event.transaction.hash.toHex();
+  relayedMessage.txHash = event.transaction.hash.toHex();
   relayedMessage.timestamp = event.block.timestamp.toI32();
   relayedMessage.msgHash = event.params.msgHash.toHex();
   relayedMessage.index = stats.relayedMessageCount;
@@ -42,7 +42,7 @@ export function handleSentMessage(event: SentMessageEvent): void {
 
   const sentMessage = new SentMessage(event.transaction.hash.toHex() + '-' + event.logIndex.toString());
   sentMessage.timestamp = event.block.timestamp.toI32();
-  sentMessage.hash = event.transaction.hash.toHex();
+  sentMessage.txHash = event.transaction.hash.toHex();
   sentMessage.from = event.transaction.from;
   sentMessage.message = event.params.message;
   sentMessage.index = stats.sentMessageCount;
@@ -68,7 +68,7 @@ export function handleWithdrawal(event: WithdrawalInitiatedEvent): void {
   stats.save();
 
   withdrawal.timestamp = event.block.timestamp.toI32();
-  withdrawal.hash = event.transaction.hash.toHex();
+  withdrawal.txHash = event.transaction.hash.toHex();
   withdrawal.account = event.params.account;
   withdrawal.amount = event.params.amount;
   withdrawal.bridgeAddress = event.address;

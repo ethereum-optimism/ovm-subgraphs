@@ -60,13 +60,13 @@ export class SentMessage extends Entity {
     this.set("timestamp", Value.fromI32(value));
   }
 
-  get hash(): string {
-    let value = this.get("hash");
+  get txHash(): string {
+    let value = this.get("txHash");
     return value.toString();
   }
 
-  set hash(value: string) {
-    this.set("hash", Value.fromString(value));
+  set txHash(value: string) {
+    this.set("txHash", Value.fromString(value));
   }
 
   get from(): Bytes {
@@ -127,13 +127,13 @@ export class RelayedMessage extends Entity {
     this.set("to", Value.fromBytes(value));
   }
 
-  get hash(): string {
-    let value = this.get("hash");
+  get txHash(): string {
+    let value = this.get("txHash");
     return value.toString();
   }
 
-  set hash(value: string) {
-    this.set("hash", Value.fromString(value));
+  set txHash(value: string) {
+    this.set("txHash", Value.fromString(value));
   }
 
   get timestamp(): i32 {
@@ -252,13 +252,13 @@ export class Deposit extends Entity {
     this.set("index", Value.fromI32(value));
   }
 
-  get hash(): string {
-    let value = this.get("hash");
+  get txHash(): string {
+    let value = this.get("txHash");
     return value.toString();
   }
 
-  set hash(value: string) {
-    this.set("hash", Value.fromString(value));
+  set txHash(value: string) {
+    this.set("txHash", Value.fromString(value));
   }
 
   get timestamp(): i32 {
