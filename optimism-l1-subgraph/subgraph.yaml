@@ -6,9 +6,9 @@ schema:
 dataSources:
   - kind: ethereum/contract
     name: OVM_CrossDomainMessenger
-    network: kovan
+    network: mainnet
     source:
-      address: "0xb89065D5eB05Cac554FDB11fC764C679b4202322"
+      address: "0xfBE93ba0a2Df92A8e8D40cE00acCF9248a6Fc812"
       abi: OVM_CrossDomainMessenger
       startBlock: 11657097
     mapping:
@@ -28,9 +28,9 @@ dataSources:
       file: ./src/mapping.ts
   - kind: ethereum/contract
     name: OVM_L1ETHGateway
-    network: kovan
+    network: mainnet
     source:
-      address: "0x6647D5BD9EB9425838Bb89f76a166228b95671a3"
+      address: "0x0000000000000000000000000000000000000000"
       abi: OVM_L1ETHGateway
       startBlock: 11657097
     mapping:
@@ -48,9 +48,9 @@ dataSources:
       file: ./src/mapping.ts
   - kind: ethereum/contract
     name: SynthetixBridgeToOptimism
-    network: kovan
+    network: mainnet
     source:
-      address: "0xE8Bf8fe5ce9e15D30F478E1647A57CB6B0271228"
+      address: "0x045e507925d2e05D114534D0810a1abD94aca8d6"
       abi: SynthetixBridgeToOptimism
       startBlock: 11657097
     mapping:

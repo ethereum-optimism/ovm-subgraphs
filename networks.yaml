@@ -1,4 +1,5 @@
 mainnet:
+  startBlock: 11657097
   contracts:
     ovmCrossDomainMessenger:
       address: "0xfBE93ba0a2Df92A8e8D40cE00acCF9248a6Fc812"
@@ -8,6 +9,7 @@ mainnet:
       address: "0x045e507925d2e05D114534D0810a1abD94aca8d6"
   networkName: mainnet
 optimism:
+  startBlock: 0
   contracts:
     ovmCrossDomainMessenger:
       address: "0x4200000000000000000000000000000000000007"
@@ -17,6 +19,7 @@ optimism:
       address: "0x4D7186818daBFe88bD80421656BbD07Dffc979Cc"
   networkName: optimism
 kovan:
+  startBlock: 23037306
   contracts:
     ovmCrossDomainMessenger:
       address: "0xb89065D5eB05Cac554FDB11fC764C679b4202322"
@@ -26,6 +29,7 @@ kovan:
       address: "0xE8Bf8fe5ce9e15D30F478E1647A57CB6B0271228"
   networkName: kovan
 kovan-optimism:
+  startBlock: 0
   contracts:
     ovmCrossDomainMessenger:
       address: "0x4200000000000000000000000000000000000007"

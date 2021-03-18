@@ -10,7 +10,7 @@ dataSources:
     source:
       address: "{{contracts.ovmCrossDomainMessenger.address}}"
       abi: OVM_CrossDomainMessenger
-      startBlock: 11657097
+      startBlock: {{startBlock}}
     mapping:
       kind: ethereum/events
       apiVersion: 0.0.4
@@ -32,7 +32,7 @@ dataSources:
     source:
       address: "{{contracts.ovmL1EthGateway.address}}"
       abi: OVM_L1ETHGateway
-      startBlock: 11657097
+      startBlock: {{startBlock}}
     mapping:
       kind: ethereum/events
       apiVersion: 0.0.4
@@ -52,7 +52,7 @@ dataSources:
     source:
       address: "{{contracts.snxBridgeToOptimism.address}}"
       abi: SynthetixBridgeToOptimism
-      startBlock: 11657097
+      startBlock: {{startBlock}}
     mapping:
       kind: ethereum/events
       apiVersion: 0.0.4
