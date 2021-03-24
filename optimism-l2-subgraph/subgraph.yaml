@@ -6,7 +6,7 @@ schema:
 dataSources:
   - kind: ethereum/contract
     name: OVM_CrossDomainMessenger
-    network: optimism-kovan
+    network: optimism
     source:
       address: "0x4200000000000000000000000000000000000007"
       abi: OVM_CrossDomainMessenger
@@ -25,24 +25,4 @@ dataSources:
           handler: handleMessageRelayed
         - event: SentMessage(bytes)
           handler: handleSentMessage
-      file: ./src/mapping.ts
-  - kind: ethereum/contract
-    name: SynthetixBridgeToBase
-    network: optimism-kovan
-    source:
-      address: "0xC2E4aB21D4d68B82bA71C2Fb449EC8aACc86133A"
-      abi: SynthetixBridgeToBase
-      startBlock: 0
-    mapping:
-      kind: ethereum/events
-      apiVersion: 0.0.4
-      language: wasm/assemblyscript
-      entities:
-        - Withdrawal
-      abis:
-        - name: SynthetixBridgeToBase
-          file: ../abis/SynthetixBridgeToBase.json
-      eventHandlers:
-        - event: WithdrawalInitiated(indexed address,uint256)
-          handler: handleWithdrawal
       file: ./src/mapping.ts

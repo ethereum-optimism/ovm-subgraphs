@@ -5,8 +5,6 @@ mainnet:
       address: "0xfBE93ba0a2Df92A8e8D40cE00acCF9248a6Fc812"
     ovmL1EthGateway:
       address: "0x0000000000000000000000000000000000000000" # TODO: replace this
-    snxBridgeToOptimism:
-      address: "0x045e507925d2e05D114534D0810a1abD94aca8d6"
   networkName: mainnet
 optimism:
   startBlock: 0
@@ -15,8 +13,6 @@ optimism:
       address: "0x4200000000000000000000000000000000000007"
     ovmETH:
       address: "0x4200000000000000000000000000000000000006"
-    snxBridgeToBase:
-      address: "0x4D7186818daBFe88bD80421656BbD07Dffc979Cc"
   networkName: optimism
 kovan:
   startBlock: 23037306
@@ -25,8 +21,6 @@ kovan:
       address: "0xb89065D5eB05Cac554FDB11fC764C679b4202322"
     ovmL1EthGateway:
       address: "0x6647D5BD9EB9425838Bb89f76a166228b95671a3"
-    snxBridgeToOptimism:
-      address: "0xE8Bf8fe5ce9e15D30F478E1647A57CB6B0271228"
   networkName: kovan
 kovan-optimism:
   startBlock: 0
@@ -35,6 +29,4 @@ kovan-optimism:
       address: "0x4200000000000000000000000000000000000007"
     ovmETH:
       address: "0x4200000000000000000000000000000000000006"
-    snxBridgeToBase:
-      address: "0xC2E4aB21D4d68B82bA71C2Fb449EC8aACc86133A"
   networkName: optimism-kovan

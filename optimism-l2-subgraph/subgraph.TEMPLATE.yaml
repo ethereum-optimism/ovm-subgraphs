@@ -26,23 +26,3 @@ dataSources:
         - event: SentMessage(bytes)
           handler: handleSentMessage
       file: ./src/mapping.ts
-  - kind: ethereum/contract
-    name: SynthetixBridgeToBase
-    network: {{networkName}}
-    source:
-      address: "{{contracts.snxBridgeToBase.address}}"
-      abi: SynthetixBridgeToBase
-      startBlock: {{startBlock}}
-    mapping:
-      kind: ethereum/events
-      apiVersion: 0.0.4
-      language: wasm/assemblyscript
-      entities:
-        - Withdrawal
-      abis:
-        - name: SynthetixBridgeToBase
-          file: ../abis/SynthetixBridgeToBase.json
-      eventHandlers:
-        - event: WithdrawalInitiated(indexed address,uint256)
-          handler: handleWithdrawal
-      file: ./src/mapping.ts

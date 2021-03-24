@@ -1,10 +1,9 @@
-import { BigInt, Bytes } from '@graphprotocol/graph-ts';
+import { Bytes } from '@graphprotocol/graph-ts';
 import {
   RelayedMessage as RelayedMessageEvent,
   SentMessage as SentMessageEvent,
 } from '../generated/OVM_CrossDomainMessenger/OVM_CrossDomainMessenger';
-import { Deposit as DepositEvent } from '../generated/SynthetixBridgeToOptimism/SynthetixBridgeToOptimism';
-import { RelayedMessage, Deposit, SentMessage, MessageStats, TxStats } from '../generated/schema';
+import { RelayedMessage, SentMessage, MessageStats } from '../generated/schema';
 
 const STATS_ID = '1';
 
@@ -49,28 +48,4 @@ export function handleSentMessage(event: SentMessageEvent): void {
   stats.sentMessageCount = stats.sentMessageCount + 1;
   stats.save();
   sentMessage.save();
-}
-
-export function handleDeposit(event: DepositEvent): void {
-  const deposit = new Deposit(event.transaction.hash.toHex());
-
-  // create a stats entity if this is the first event, else update the existing one
-  let stats = TxStats.load(STATS_ID);
-  if (stats == null) {
-    stats = new TxStats(STATS_ID);
-    stats.totalCount = 0;
-    stats.totalAmount = BigInt.fromI32(0);
-  }
-  // zero indexed
-  deposit.index = stats.totalCount;
-  deposit.timestamp = event.block.timestamp.toI32();
-  deposit.txHash = event.transaction.hash.toHex();
-  deposit.account = event.params.account;
-  deposit.amount = event.params.amount;
-  deposit.bridgeAddress = event.address;
-  deposit.save();
-
-  stats.totalCount = stats.totalCount + 1;
-  stats.totalAmount = stats.totalAmount.plus(event.params.amount);
-  stats.save();
 }

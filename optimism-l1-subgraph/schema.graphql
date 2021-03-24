@@ -22,19 +22,3 @@ type MessageStats @entity {
   sentMessageCount: Int!
   relayedMessageCount: Int!
 }
-
-type Deposit @entity {
-  id: ID!
-  index: Int!
-  txHash: String!
-  timestamp: Int!
-  account: Bytes!
-  amount: BigInt!
-  bridgeAddress: Bytes!
-}
-
-type TxStats @entity {
-  id: ID!
-  totalCount: Int!
-  totalAmount: BigInt!
-}

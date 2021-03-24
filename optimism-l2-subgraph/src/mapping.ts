@@ -1,10 +1,10 @@
-import { BigInt, Bytes } from '@graphprotocol/graph-ts';
+import { Bytes } from '@graphprotocol/graph-ts';
 import { WithdrawalInitiated as WithdrawalInitiatedEvent } from '../generated/SynthetixBridgeToBase/SynthetixBridgeToBase';
 import {
   SentMessage as SentMessageEvent,
   RelayedMessage as RelayedMessageEvent,
 } from '../generated/OVM_CrossDomainMessenger/OVM_CrossDomainMessenger';
-import { Withdrawal, SentMessage, RelayedMessage, MessageStats, TxStats } from '../generated/schema';
+import { SentMessage, RelayedMessage, MessageStats } from '../generated/schema';
 
 const STATS_ID = '1';
 
@@ -50,27 +50,4 @@ export function handleSentMessage(event: SentMessageEvent): void {
   stats.sentMessageCount = stats.sentMessageCount + 1;
   stats.save();
   sentMessage.save();
-}
-
-// L2 contract
-export function handleWithdrawal(event: WithdrawalInitiatedEvent): void {
-  const withdrawal = new Withdrawal(event.transaction.hash.toHex() + '-' + event.logIndex.toString());
-  // create a stats entity if this is the first event, else update the existing one
-  let stats = TxStats.load(STATS_ID);
-  if (stats == null) {
-    stats = new TxStats(STATS_ID);
-    stats.totalCount = 0;
-    stats.totalAmount = BigInt.fromI32(0);
-  }
-  withdrawal.index = stats.totalCount;
-  stats.totalCount = stats.totalCount + 1;
-  stats.totalAmount = stats.totalAmount.plus(event.params.amount);
-  stats.save();
-
-  withdrawal.timestamp = event.block.timestamp.toI32();
-  withdrawal.txHash = event.transaction.hash.toHex();
-  withdrawal.account = event.params.account;
-  withdrawal.amount = event.params.amount;
-  withdrawal.bridgeAddress = event.address;
-  withdrawal.save();
 }
